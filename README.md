@@ -5,6 +5,7 @@ Notas e soluções sobre programação paralela utilizando open-mpi e open-mp
 ## Estrutura dos diretórios
 ```
 .
+├── Makefile
 ├── README.md
 ├── class_exercises
 │   └── open_mpi
@@ -20,9 +21,7 @@ Notas e soluções sobre programação paralela utilizando open-mpi e open-mp
 │       │   ├── hello_world_mpi.c
 │       │   └── hello_world_with_mesages.c
 │       ├── integral_example
-│       │   ├── integral_example
 │       │   ├── integral_example.c
-│       │   ├── integral_example_w_reduce
 │       │   └── integral_example_w_reduce.c
 │       └── matrix
 │           └── mxv.c
