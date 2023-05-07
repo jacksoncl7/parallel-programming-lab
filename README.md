@@ -1,4 +1,5 @@
-## Notas e soluções sobre programação paralela utilizando open-mpi e open-mp
+## Laboratório de programação paralela
+Notas e soluções sobre programação paralela utilizando open-mpi e open-mp
 
 
 ## Estrutura dos diretórios
@@ -25,4 +26,9 @@
 │       │   └── integral_example_w_reduce.c
 │       └── matrix
 │           └── mxv.c
+└── homeworks
+    └── open_mpi_prime_numbers
+        ├── bag_of_tasks.c
+        ├── experiments
+        └── naive.c
 ```
