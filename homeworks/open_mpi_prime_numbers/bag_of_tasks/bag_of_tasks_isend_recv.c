@@ -18,7 +18,7 @@ int primo(int n)
 	return 1;
 }
 
-/* bag_of_tasks_default.c */
+/* bag_of_tasks_isend_recv.c */
 int main(int argc, char *argv[])
 {
     double t_inicial, t_final;
@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
     int i, num_primo_max;
     int meu_ranque, num_procs, num_inicial, proc_dest, proc_raiz=0, tag=1, stop=0;
     MPI_Status estado;
+    MPI_Request pedido_envia;
 
     /* Verifica o número de argumentos passados */
 	if(argc < 2)
@@ -67,7 +68,8 @@ int main(int argc, char *argv[])
             proc_dest < num_procs && num_inicial < num_primo_max;
             proc_dest++, num_inicial += TAMANHO)
         {
-            MPI_Send(&num_inicial, 1, MPI_INT, proc_dest, tag, MPI_COMM_WORLD);
+            MPI_Isend(&num_inicial, 1, MPI_INT, proc_dest, tag, MPI_COMM_WORLD, &pedido_envia);
+            MPI_Wait(&pedido_envia, &estado);
             // printf("(1o envio) Processo 0 enviou %d para o processo %d\n", num_inicial, proc_dest);
         }
         
@@ -86,7 +88,8 @@ int main(int argc, char *argv[])
             // printf("Processos finalizados = %d\n", stop);
             
             /* Envia um novo pedaço com TAMANHO números para o mesmo processo*/
-            MPI_Send(&num_inicial, 1, MPI_INT, proc_dest, tag, MPI_COMM_WORLD);
+            MPI_Isend(&num_inicial, 1, MPI_INT, proc_dest, tag, MPI_COMM_WORLD, &pedido_envia);
+            MPI_Wait(&pedido_envia, &estado);
             // printf("(envio posterior) Processo 0 enviou %d para %d\n", num_inicial, proc_dest);
             num_inicial += TAMANHO;
         }
@@ -110,7 +113,8 @@ int main(int argc, char *argv[])
                 }
                 
                 /* Envia a contagem parcial para o processo mestre */
-                MPI_Send(&num_primo_cont, 1, MPI_INT, proc_raiz, tag, MPI_COMM_WORLD);
+                MPI_Isend(&num_primo_cont, 1, MPI_INT, proc_raiz, tag, MPI_COMM_WORLD, &pedido_envia);
+                MPI_Wait(&pedido_envia, &estado);
             }
         }
         

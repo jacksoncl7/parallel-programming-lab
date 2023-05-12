@@ -1,0 +1,41 @@
+====
+TODO
+====
+- Otimizar as diferentes combinações.
+- Script para rodar testes com números diferentes de
+processos e coletar resultados.
+
+=========
+CONCEITOS
+=========
+Tipos de Speed-up:
+- superlinear
+- linear
+- sublinear
+- negativo
+
+Speed-up:
+- "Razão entre o tempo gasto para execução de um algoritmo
+  ou aplicação em um único processador e o tempo gasto na
+  execução com n processadores."
+  
+- S(n) = T(1) / T(n)
+
+Eficiência:
+  E(n) = S(n) / n
+  
+=====================
+PARÂMETROS PARA TESTE
+=====================
+TAMANHO = 500000
+Teste 1: num_primo_max = 2500000
+Teste 2: num_primo_max = 25000000
+
+==========
+RESULTADOS
+==========
+Default:
+- Teste 1: 0.633
+- Teste 2: 13.056
+
+

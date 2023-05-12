@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
             proc_dest < num_procs && num_inicial < num_primo_max;
             proc_dest++, num_inicial += TAMANHO)
         {
-            MPI_Send(&num_inicial, 1, MPI_INT, proc_dest, tag, MPI_COMM_WORLD);
+            MPI_Rsend(&num_inicial, 1, MPI_INT, proc_dest, tag, MPI_COMM_WORLD);
             // printf("(1o envio) Processo 0 enviou %d para o processo %d\n", num_inicial, proc_dest);
         }
         
@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
             // printf("Processos finalizados = %d\n", stop);
             
             /* Envia um novo pedaço com TAMANHO números para o mesmo processo*/
-            MPI_Send(&num_inicial, 1, MPI_INT, proc_dest, tag, MPI_COMM_WORLD);
+            MPI_Rsend(&num_inicial, 1, MPI_INT, proc_dest, tag, MPI_COMM_WORLD);
             // printf("(envio posterior) Processo 0 enviou %d para %d\n", num_inicial, proc_dest);
             num_inicial += TAMANHO;
         }
