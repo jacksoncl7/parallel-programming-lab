@@ -18,7 +18,7 @@ int primo(int n)
 	return 1;
 }
 
-/* bag_of_tasks_rsend_recv.c */
+/* bag_of_tasks_rsend_irecv.c */
 int main(int argc, char *argv[])
 {
     double t_inicial, t_final;
@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
     int i, num_primo_max;
     int meu_ranque, num_procs, num_inicial, proc_dest, proc_raiz=0, tag=1, stop=0;
     MPI_Status estado;
+    MPI_Request pedido_recebe;
 
     /* Verifica o número de argumentos passados */
 	if(argc < 2)
@@ -74,7 +75,8 @@ int main(int argc, char *argv[])
         /* Fica recebendo as contagens parciais de cada processo */
         while(stop < (num_procs-1))
         {
-		    MPI_Recv(&num_primo_cont, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &estado);
+		    MPI_Irecv(&num_primo_cont, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &pedido_recebe);
+            MPI_Wait(&pedido_recebe, &estado);
             num_primo_total += num_primo_cont;
             proc_dest = estado.MPI_SOURCE;
             // printf("Processo 0 recebeu %d do processo %d\n", num_primo_cont, proc_dest);
@@ -97,7 +99,8 @@ int main(int argc, char *argv[])
         while(estado.MPI_TAG != 99)
         {
             // printf("Processo %d está aguardando...\n", meu_ranque);
-            MPI_Recv(&num_inicial, 1, MPI_INT, proc_raiz, MPI_ANY_TAG, MPI_COMM_WORLD, &estado);
+            MPI_Irecv(&num_inicial, 1, MPI_INT, proc_raiz, MPI_ANY_TAG, MPI_COMM_WORLD, &pedido_recebe);
+            MPI_Wait(&pedido_recebe, &estado);
             // printf("Processo %d recebeu %d.\n", meu_ranque, num_inicial);
             if(estado.MPI_TAG != 99)
             {

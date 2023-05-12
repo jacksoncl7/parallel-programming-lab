@@ -2,8 +2,6 @@
 TODO
 ====
 - Otimizar as diferentes combinações.
-- Script para rodar testes com números diferentes de
-processos e coletar resultados.
 
 =========
 CONCEITOS
@@ -30,12 +28,3 @@ PARÂMETROS PARA TESTE
 TAMANHO = 500000
 Teste 1: num_primo_max = 2500000
 Teste 2: num_primo_max = 25000000
-
-==========
-RESULTADOS
-==========
-Default:
-- Teste 1: 0.633
-- Teste 2: 13.056
-
-
