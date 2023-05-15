@@ -5,7 +5,6 @@ Notas e soluções sobre programação paralela utilizando open-mpi e open-mp
 ## Estrutura dos diretórios
 ```
 .
-├── Makefile
 ├── README.md
 ├── class_exercises
 │   └── open_mpi
@@ -27,7 +26,40 @@ Notas e soluções sobre programação paralela utilizando open-mpi e open-mp
 │           └── mxv.c
 └── homeworks
     └── open_mpi_prime_numbers
-        ├── bag_of_tasks.c
+        ├── bag_of_tasks
+        │   ├── anotações.txt
+        │   ├── bag_of_tasks_default.c
+        │   ├── bag_of_tasks_isend_irecv.c
+        │   ├── bag_of_tasks_isend_recv.c
+        │   ├── bag_of_tasks_rsend_irecv.c
+        │   ├── bag_of_tasks_rsend_recv.c
+        │   ├── bag_of_tasks_send_irecv.c
+        │   ├── bag_of_tasks_ssend_irecv.c
+        │   ├── bag_of_tasks_ssend_recv.c
+        │   ├── build
+        │   │   ├── default
+        │   │   ├── isend_irecv
+        │   │   ├── isend_recv
+        │   │   ├── rsend_irecv
+        │   │   ├── rsend_recv
+        │   │   ├── send_irecv
+        │   │   ├── ssend_irecv
+        │   │   └── ssend_recv
+        │   ├── build.sh
+        │   ├── build_and_test.sh
+        │   └── test.sh
         ├── experiments
-        └── naive.c
+        └── naive
+            ├── build
+            │   ├── naive_default_build
+            │   ├── naive_isend_irecev_build
+            │   ├── naive_isend_recev_build
+            │   ├── naive_send_irecev_build
+            │   ├── naive_send_recev_build
+            │   └── testing_build
+            ├── naive_default.c
+            ├── naive_isend_irecev.c
+            ├── naive_isend_recev.c
+            ├── naive_send_irecev.c
+            └── naive_send_recev.c
 ```
