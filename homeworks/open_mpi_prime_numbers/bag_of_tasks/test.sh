@@ -1,28 +1,25 @@
-# TODO(Gustavo): put all the tests into a file in a way that
-# make it easy to generate the necessary graphs later.
-
-firstMaxPrimeNumber=2500000
-secondMaxPrimeNumber=25000000
+firstMaxPrimeNumber=3250000
+secondMaxPrimeNumber=32500000
 # numberOfTestsForEachEntry=3
-# maxNumberOfProcesses=16
+# maxNumberOfProcesses=8
 
 cd build
 for file in $(ls)
 do
-    for numberOfProcesses in {2..16}
+    echo ".$file"
+    for numberOfProcesses in {2..8}
     do
+        echo "..processos = $numberOfProcesses, num_primo_max = $firstMaxPrimeNumber"
         for test in {1..3}
         do
-            mpirun --oversubscribe -n $numberOfProcesses ./$file $firstMaxPrimeNumber
+            mpirun --oversubscribe -n $numberOfProcesses ./$file $firstMaxPrimeNumber | sed 1d | awk '{print $4}'
         done
-        # TODO(Gustavo): Average the 3 tests here.
-        for test in {1..3}
-        do
-            mpirun --oversubscribe -n $numberOfProcesses ./$file $secondMaxPrimeNumber
-        done
-        # TODO(Gustavo): Average the 3 tests here.
 
-        # TODO(Gustavo): Save both cases for the 'file' entry.
+        echo "..processos = $numberOfProcesses, num_primo_max = $secondMaxPrimeNumber"
+        for test in {1..3}
+        do
+            mpirun --oversubscribe -n $numberOfProcesses ./$file $secondMaxPrimeNumber | sed 1d | awk '{print $4}'
+        done
     done
 done
 cd ..
