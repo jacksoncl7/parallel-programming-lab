@@ -25,6 +25,7 @@ int main(int argc, char *argv[]) {
         	n = strtol(argv[1], (char **) NULL, 10);
        	}
 
+	MPI_Request request;
 	MPI_Status status;
 	MPI_Init(&argc, &argv);
 	MPI_Comm_rank(MPI_COMM_WORLD, &meu_ranque);
@@ -44,7 +45,7 @@ int main(int argc, char *argv[]) {
 			total += cont;
 		}
 	} else {
-		MPI_Send(&cont, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
+		MPI_Ssend(&cont, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
 	}
 
 	t_final = MPI_Wtime();
