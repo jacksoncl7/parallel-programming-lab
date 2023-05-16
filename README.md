@@ -48,8 +48,12 @@ Notas e soluções sobre programação paralela utilizando open-mpi e open-mp
             ├── build
             │   ├── **binaries**
             ├── naive_default.c
-            ├── naive_isend_irecev.c
-            ├── naive_isend_recev.c
-            ├── naive_send_irecev.c
-            └── naive_send_recev.c
+            ├── naive_isend_irecv.c
+            ├── naive_isend_recv.c
+            ├── naive_rsend_irecv.c
+            ├── naive_rsend_recv.c
+            ├── naive_send_irecv.c
+            ├── naive_send_recv.c
+            ├── naive_ssend_irecv.c
+            └── naive_ssend_recv.c
 ```
