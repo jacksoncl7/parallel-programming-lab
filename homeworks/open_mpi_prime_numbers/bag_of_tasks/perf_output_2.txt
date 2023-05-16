@@ -1,0 +1,456 @@
+.default
+..processos = 2, num_primo_max = 3250000
+1.870
+1.883
+1.902
+..processos = 2, num_primo_max = 32500000
+49.992
+58.480
+62.249
+..processos = 3, num_primo_max = 3250000
+1.018
+1.017
+1.015
+..processos = 3, num_primo_max = 32500000
+32.724
+39.432
+33.614
+..processos = 4, num_primo_max = 3250000
+1.195
+0.914
+0.969
+..processos = 4, num_primo_max = 32500000
+26.798
+27.032
+24.983
+..processos = 5, num_primo_max = 3250000
+0.863
+0.959
+1.024
+..processos = 5, num_primo_max = 32500000
+28.277
+26.449
+27.649
+..processos = 6, num_primo_max = 3250000
+1.107
+0.985
+1.122
+..processos = 6, num_primo_max = 32500000
+21.662
+27.254
+27.191
+..processos = 7, num_primo_max = 3250000
+0.818
+0.783
+0.835
+..processos = 7, num_primo_max = 32500000
+21.828
+25.385
+20.301
+..processos = 8, num_primo_max = 3250000
+1.147
+1.169
+1.276
+..processos = 8, num_primo_max = 32500000
+27.296
+25.884
+25.070
+.isend_irecv
+..processos = 2, num_primo_max = 3250000
+3.096
+3.064
+3.080
+..processos = 2, num_primo_max = 32500000
+72.729
+68.497
+67.364
+..processos = 3, num_primo_max = 3250000
+1.259
+1.041
+1.017
+..processos = 3, num_primo_max = 32500000
+35.286
+37.346
+39.179
+..processos = 4, num_primo_max = 3250000
+0.761
+0.767
+0.786
+..processos = 4, num_primo_max = 32500000
+30.800
+31.130
+30.397
+..processos = 5, num_primo_max = 3250000
+1.146
+0.868
+0.870
+..processos = 5, num_primo_max = 32500000
+24.006
+27.584
+28.277
+..processos = 6, num_primo_max = 3250000
+1.287
+0.738
+0.637
+..processos = 6, num_primo_max = 32500000
+19.048
+25.886
+26.746
+..processos = 7, num_primo_max = 3250000
+1.092
+0.968
+0.921
+..processos = 7, num_primo_max = 32500000
+24.410
+24.047
+25.686
+..processos = 8, num_primo_max = 3250000
+1.249
+1.139
+0.973
+..processos = 8, num_primo_max = 32500000
+24.015
+24.922
+24.207
+.isend_recv
+..processos = 2, num_primo_max = 3250000
+2.986
+1.918
+1.932
+..processos = 2, num_primo_max = 32500000
+69.611
+61.089
+68.272
+..processos = 3, num_primo_max = 3250000
+1.522
+1.402
+1.227
+..processos = 3, num_primo_max = 32500000
+39.015
+37.617
+37.486
+..processos = 4, num_primo_max = 3250000
+1.337
+1.239
+1.276
+..processos = 4, num_primo_max = 32500000
+24.597
+31.558
+23.935
+..processos = 5, num_primo_max = 3250000
+0.758
+0.984
+0.812
+..processos = 5, num_primo_max = 32500000
+24.821
+30.378
+27.435
+..processos = 6, num_primo_max = 3250000
+1.082
+1.124
+1.019
+..processos = 6, num_primo_max = 32500000
+24.884
+25.433
+24.856
+..processos = 7, num_primo_max = 3250000
+1.029
+0.902
+0.945
+..processos = 7, num_primo_max = 32500000
+23.821
+24.753
+25.440
+..processos = 8, num_primo_max = 3250000
+1.196
+1.030
+1.254
+..processos = 8, num_primo_max = 32500000
+24.550
+24.557
+17.861
+.rsend_irecv
+..processos = 2, num_primo_max = 3250000
+2.351
+2.257
+2.313
+..processos = 2, num_primo_max = 32500000
+72.194
+67.540
+66.263
+..processos = 3, num_primo_max = 3250000
+1.045
+1.052
+1.017
+..processos = 3, num_primo_max = 32500000
+39.145
+37.740
+36.802
+..processos = 4, num_primo_max = 3250000
+0.868
+1.175
+0.861
+..processos = 4, num_primo_max = 32500000
+31.046
+29.765
+30.421
+..processos = 5, num_primo_max = 3250000
+1.175
+0.945
+0.973
+..processos = 5, num_primo_max = 32500000
+24.811
+27.172
+20.041
+..processos = 6, num_primo_max = 3250000
+0.958
+1.288
+1.272
+..processos = 6, num_primo_max = 32500000
+22.098
+28.104
+26.741
+..processos = 7, num_primo_max = 3250000
+0.941
+0.848
+0.945
+..processos = 7, num_primo_max = 32500000
+24.237
+24.457
+20.716
+..processos = 8, num_primo_max = 3250000
+1.340
+1.221
+1.236
+..processos = 8, num_primo_max = 32500000
+25.735
+23.614
+25.518
+.rsend_recv
+..processos = 2, num_primo_max = 3250000
+1.944
+1.956
+1.973
+..processos = 2, num_primo_max = 32500000
+70.514
+66.045
+67.650
+..processos = 3, num_primo_max = 3250000
+1.361
+1.271
+1.267
+..processos = 3, num_primo_max = 32500000
+34.245
+36.229
+43.668
+..processos = 4, num_primo_max = 3250000
+1.321
+1.278
+1.236
+..processos = 4, num_primo_max = 32500000
+31.378
+23.543
+30.203
+..processos = 5, num_primo_max = 3250000
+1.158
+1.032
+1.065
+..processos = 5, num_primo_max = 32500000
+25.937
+26.509
+26.908
+..processos = 6, num_primo_max = 3250000
+1.088
+1.108
+1.171
+..processos = 6, num_primo_max = 32500000
+25.269
+24.488
+24.707
+..processos = 7, num_primo_max = 3250000
+0.951
+0.958
+0.810
+..processos = 7, num_primo_max = 32500000
+24.244
+25.621
+24.712
+..processos = 8, num_primo_max = 3250000
+1.006
+0.929
+0.921
+..processos = 8, num_primo_max = 32500000
+23.811
+23.886
+24.252
+.send_irecv
+..processos = 2, num_primo_max = 3250000
+3.109
+3.724
+3.350
+..processos = 2, num_primo_max = 32500000
+69.636
+66.424
+66.378
+..processos = 3, num_primo_max = 3250000
+1.308
+1.442
+1.661
+..processos = 3, num_primo_max = 32500000
+38.200
+40.924
+32.473
+..processos = 4, num_primo_max = 3250000
+1.035
+0.856
+0.838
+..processos = 4, num_primo_max = 32500000
+30.971
+29.353
+32.568
+..processos = 5, num_primo_max = 3250000
+0.696
+0.889
+1.008
+..processos = 5, num_primo_max = 32500000
+22.520
+25.494
+28.311
+..processos = 6, num_primo_max = 3250000
+1.058
+1.090
+0.927
+..processos = 6, num_primo_max = 32500000
+24.985
+24.272
+26.090
+..processos = 7, num_primo_max = 3250000
+1.113
+0.847
+0.866
+..processos = 7, num_primo_max = 32500000
+24.251
+24.963
+19.121
+..processos = 8, num_primo_max = 3250000
+1.505
+1.344
+1.252
+..processos = 8, num_primo_max = 32500000
+25.771
+23.281
+24.859
+.ssend_irecv
+..processos = 2, num_primo_max = 3250000
+3.274
+3.392
+1.896
+..processos = 2, num_primo_max = 32500000
+68.720
+65.444
+66.733
+..processos = 3, num_primo_max = 3250000
+1.178
+1.272
+1.080
+..processos = 3, num_primo_max = 32500000
+35.483
+39.954
+37.640
+..processos = 4, num_primo_max = 3250000
+0.942
+1.015
+0.846
+..processos = 4, num_primo_max = 32500000
+28.969
+31.606
+31.891
+..processos = 5, num_primo_max = 3250000
+1.088
+0.871
+1.032
+..processos = 5, num_primo_max = 32500000
+24.861
+25.821
+27.048
+..processos = 6, num_primo_max = 3250000
+0.954
+1.052
+1.039
+..processos = 6, num_primo_max = 32500000
+24.371
+24.085
+26.171
+..processos = 7, num_primo_max = 3250000
+1.124
+1.002
+0.979
+..processos = 7, num_primo_max = 32500000
+24.742
+23.200
+25.602
+..processos = 8, num_primo_max = 3250000
+0.991
+0.889
+0.836
+..processos = 8, num_primo_max = 32500000
+23.929
+23.165
+23.206
+.ssend_recv
+..processos = 2, num_primo_max = 3250000
+3.200
+3.712
+3.126
+..processos = 2, num_primo_max = 32500000
+69.190
+64.528
+66.788
+..processos = 3, num_primo_max = 3250000
+1.651
+1.218
+1.014
+..processos = 3, num_primo_max = 32500000
+34.701
+41.261
+37.821
+..processos = 4, num_primo_max = 3250000
+1.246
+1.162
+1.017
+..processos = 4, num_primo_max = 32500000
+28.254
+31.588
+30.890
+..processos = 5, num_primo_max = 3250000
+1.109
+1.030
+1.177
+..processos = 5, num_primo_max = 32500000
+23.407
+28.382
+27.342
+..processos = 6, num_primo_max = 3250000
+1.252
+1.181
+1.072
+..processos = 6, num_primo_max = 32500000
+25.056
+24.977
+25.875
+..processos = 7, num_primo_max = 3250000
+1.004
+1.185
+0.916
+..processos = 7, num_primo_max = 32500000
+23.790
+25.058
+17.954
+..processos = 8, num_primo_max = 3250000
+0.850
+0.888
+1.026
+..processos = 8, num_primo_max = 32500000
+26.877
+23.516
+25.198
