@@ -45,7 +45,6 @@ int main(int argc, char *argv[]) {
 			total += cont;
 		}
 	} else {
-		//MPI_Waitany(num_procs-1, &request, 0, &status);
 		MPI_Ssend(&cont, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
 	}
 
