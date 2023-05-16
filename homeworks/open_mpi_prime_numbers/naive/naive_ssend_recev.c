@@ -41,12 +41,12 @@ int main(int argc, char *argv[]) {
 	if (meu_ranque == 0) {
 		total = cont;
 		for (int rank_index = 1; rank_index < num_procs; rank_index++){
-			MPI_Irecv(&cont, 1, MPI_INT, rank_index, 0, MPI_COMM_WORLD, &status);
+			MPI_Recv(&cont, 1, MPI_INT, rank_index, 0, MPI_COMM_WORLD, &status);
 			total += cont;
 		}
 	} else {
-		MPI_Waitany(num_procs-1, &request, 0, &status);
-		MPI_Rsend(&cont, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
+		//MPI_Waitany(num_procs-1, &request, 0, &status);
+		MPI_Ssend(&cont, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
 	}
 
 	t_final = MPI_Wtime();
