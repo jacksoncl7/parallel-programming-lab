@@ -42,10 +42,11 @@ int main(int argc, char *argv[]) {
 		total = cont;
 		for (int rank_index = 1; rank_index < num_procs; rank_index++){
 			MPI_Irecv(&cont, 1, MPI_INT, rank_index, 0, MPI_COMM_WORLD, &request);
+			MPI_Wait(&request, &status);
 			total += cont;
+			
 		}
 	} else {
-		MPI_Waitany(num_procs-1, &request, 0, &status);
 		MPI_Ssend(&cont, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
 	}
 
