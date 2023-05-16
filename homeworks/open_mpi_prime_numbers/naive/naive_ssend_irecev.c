@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
 			MPI_Irecv(&cont, 1, MPI_INT, rank_index, 0, MPI_COMM_WORLD, &request);
 			MPI_Wait(&request, &status);
 			total += cont;
-			
+
 		}
 	} else {
 		MPI_Ssend(&cont, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);

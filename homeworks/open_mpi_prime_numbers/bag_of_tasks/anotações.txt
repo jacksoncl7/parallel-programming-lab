@@ -1,8 +1,3 @@
-====
-TODO
-====
-- Otimizar as diferentes combinações.
-
 =========
 CONCEITOS
 =========
@@ -21,10 +16,3 @@ Speed-up:
 
 Eficiência:
   E(n) = S(n) / n
-  
-=====================
-PARÂMETROS PARA TESTE
-=====================
-TAMANHO = 500000
-Teste 1: num_primo_max = 2500000
-Teste 2: num_primo_max = 25000000
