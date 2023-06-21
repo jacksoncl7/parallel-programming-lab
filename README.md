@@ -7,25 +7,35 @@ Notas e soluções sobre programação paralela utilizando open-mpi e open-mp
 .
 ├── README.md
 ├── class_exercises
-│   ├── open_mp
-│   │   └── hello_build
-│   └── open_mpi
+│   ├── mpi
+│   │   ├── README.md
+│   │   ├── communication_methods
+│   │   │   ├── bsend.c
+│   │   │   ├── isend.c
+│   │   │   ├── reduce.c
+│   │   │   ├── rsend.c
+│   │   │   ├── sendrecv.c
+│   │   │   └── ssend.c
+│   │   ├── hello_world
+│   │   │   ├── hello_world_mpi.c
+│   │   │   └── hello_world_with_mesages.c
+│   │   ├── integral_example
+│   │   │   ├── integral_example.c
+│   │   │   └── integral_example_w_reduce.c
+│   │   └── matrix
+│   │       └── mxv.c
+│   └── open_mp
 │       ├── README.md
-│       ├── communication_methods
-│       │   ├── bsend.c
-│       │   ├── isend.c
-│       │   ├── reduce.c
-│       │   ├── rsend.c
-│       │   ├── sendrecv.c
-│       │   └── ssend.c
-│       ├── hello_world
-│       │   ├── hello_world_mpi.c
-│       │   └── hello_world_with_mesages.c
-│       ├── integral_example
-│       │   ├── integral_example.c
-│       │   └── integral_example_w_reduce.c
-│       └── matrix
-│           └── mxv.c
+│       ├── atomic_graph.c
+│       ├── barrier.c
+│       ├── copyprivate.c
+│       ├── firstprivate.c
+│       ├── firstprivate_class_version.c
+│       ├── hello_world.c
+│       ├── if.c
+│       ├── lastprivate.c
+│       ├── private_example.c
+│       └── shared.c
 └── homeworks
     └── open_mpi_prime_numbers
         ├── bag_of_tasks
@@ -39,14 +49,23 @@ Notas e soluções sobre programação paralela utilizando open-mpi e open-mp
         │   ├── bag_of_tasks_ssend_irecv.c
         │   ├── bag_of_tasks_ssend_recv.c
         │   ├── build
-        │   │   ├── **binaries**
+        │   │   ├── default
+        │   │   ├── isend_irecv
+        │   │   ├── isend_recv
+        │   │   ├── rsend_irecv
+        │   │   ├── rsend_recv
+        │   │   ├── send_irecv
+        │   │   ├── ssend_irecv
+        │   │   └── ssend_recv
         │   ├── build.sh
         │   ├── build_and_test.sh
+        │   ├── perf_output.txt
+        │   ├── perf_output_2.txt
         │   └── test.sh
-        ├── experiments
         └── naive
             ├── build
-            │   ├── **binaries**
+            ├── build.sh
+            ├── build_and_test.sh
             ├── naive_default.c
             ├── naive_isend_irecv.c
             ├── naive_isend_recv.c
@@ -55,5 +74,7 @@ Notas e soluções sobre programação paralela utilizando open-mpi e open-mp
             ├── naive_send_irecv.c
             ├── naive_send_recv.c
             ├── naive_ssend_irecv.c
-            └── naive_ssend_recv.c
+            ├── naive_ssend_recv.c
+            ├── perf_out.txt
+            └── test.sh
 ```
