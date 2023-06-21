@@ -24,7 +24,7 @@ int myid, neighb, n = 2;
 
     a[myid] = a[myid] * 3;
 
-# pragma omp barrier
+    # pragma omp barrier
 
     b[myid] = a[neighb] + 2;
 } /*-- Final de região paralela --*/
