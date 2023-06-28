@@ -50,13 +50,7 @@ bool validateInput(int argc, char *argv[]) {
 }
 
 void processTask(Task *task, int *resultVector, int index) {
-    int localCount = 0;
-    for (int num = task->start; num <= task->end; num++) {
-        if (isPrime(num)) {
-            localCount++;
-        }
-    }
-    resultVector[index] += localCount;
+
 }
 
 int main(int argc, char *argv[]) {
@@ -68,47 +62,64 @@ int main(int argc, char *argv[]) {
     int objective = atoi(argv[1]);
     int numThreads = atoi(argv[2]);
     int bagSize = atoi(argv[3]);
+    int primeCount = 0;
 
-    omp_set_num_threads(numThreads);
-
+    //start to count the execution time
     clock_t startTime = clock();
 
 
+    omp_set_num_threads(numThreads);
+
+
     int chunkSize = objective / bagSize;
-    int extra = objective % bagSize;
     int start = 3;
-    Task bag[bagSize];
+    int end;
+    bool sem = false;
+    int localCount = 0;
 
-    for (int i = 0; i < bagSize; i++) {
-        Task task;
-        task.start = start;
-        task.end = start + chunkSize - 1;
+    #pragma omp parallel
+    {
 
-        if (extra > 0) {
-            task.end++;
-            extra--;
+    #pragma omp master
+    {
+        while (end != objective){
+            if (sem == false) {
+                #pragma atomic
+                end = start + chunkSize;
+            if (end > objective) end = objective;
+
+            printf("Master [%d] criou um noco chunk %d..%d\n", omp_get_thread_num(), start, end);
+            #pragma atomic
+            sem = true;
+            }
+
+            if (end != objective) start = end + 1;
         }
-
-        bag[i] = task;
-
-        start = task.end + 1;
     }
 
-    int resultVector[bagSize];
-    for (int i = 0; i < bagSize; i++) resultVector[i] =  0;
+        while (end != objective) {
+            #pragma single nowait private(localCount)
+            if (sem == false) continue;
+            int thread = omp_get_thread_num();
 
-    #pragma omp parallel for schedule(guided)
-    for (int i = 0; i < bagSize; i++) {
-        processTask(&bag[i], resultVector, i);
-    }
+            #pragma atomic
+            sem = false;
 
-    for (int i = 1; i < bagSize; i++) {
-        resultVector[0] +=  resultVector[i];
+            for (int num = start; num <= end; num++) {
+                if (isPrime(num)) {
+                    localCount++;
+                }
+            }
+
+            printf("Resultado na thread [%d] com chunk %d..%d foi %d\n", thread , start, end, localCount);
+            #pragma atomic
+            primeCount += localCount;
+        }
     }
 
     clock_t endTime = clock();
     double cpu_time_used = ((double) (endTime - startTime)) / CLOCKS_PER_SEC;
-    printf("\nQuantidade de números primos encontrados: %d\n", resultVector[0]+1);
+    printf("\nQuantidade de números primos encontrados: %d\n", primeCount+1);
     printf("\nTempo de execução: %f segundos\n", cpu_time_used);
 
     return 0;
