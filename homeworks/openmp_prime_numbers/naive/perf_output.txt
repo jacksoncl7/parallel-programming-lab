@@ -1,0 +1,195 @@
+.naive_omp_atomic
+..threads = 1, num_primo_max = 325000
+0.115
+0.112
+0.117
+..threads = 1, num_primo_max = 3250000
+2.770
+2.821
+2.765
+..threads = 2, num_primo_max = 325000
+0.075
+0.071
+0.071
+..threads = 2, num_primo_max = 3250000
+1.752
+1.745
+1.754
+..threads = 3, num_primo_max = 325000
+0.061
+0.070
+0.064
+..threads = 3, num_primo_max = 3250000
+1.281
+1.324
+1.456
+..threads = 4, num_primo_max = 325000
+0.043
+0.045
+0.049
+..threads = 4, num_primo_max = 3250000
+0.987
+0.993
+0.974
+..threads = 5, num_primo_max = 325000
+0.044
+0.044
+0.036
+..threads = 5, num_primo_max = 3250000
+0.874
+0.867
+0.871
+..threads = 6, num_primo_max = 325000
+0.045
+0.037
+0.035
+..threads = 6, num_primo_max = 3250000
+0.905
+0.910
+0.890
+..threads = 7, num_primo_max = 325000
+0.039
+0.040
+0.040
+..threads = 7, num_primo_max = 3250000
+0.854
+0.834
+0.821
+..threads = 8, num_primo_max = 325000
+0.034
+0.038
+0.034
+..threads = 8, num_primo_max = 3250000
+0.794
+0.764
+0.803
+.naive_omp_critical
+..threads = 1, num_primo_max = 325000
+0.113
+0.119
+0.118
+..threads = 1, num_primo_max = 3250000
+2.830
+2.828
+2.943
+..threads = 2, num_primo_max = 325000
+0.071
+0.071
+0.071
+..threads = 2, num_primo_max = 3250000
+1.815
+1.812
+1.789
+..threads = 3, num_primo_max = 325000
+0.070
+0.069
+0.069
+..threads = 3, num_primo_max = 3250000
+1.264
+1.304
+1.327
+..threads = 4, num_primo_max = 325000
+0.070
+0.048
+0.042
+..threads = 4, num_primo_max = 3250000
+1.187
+1.008
+1.083
+..threads = 5, num_primo_max = 325000
+0.044
+0.036
+0.036
+..threads = 5, num_primo_max = 3250000
+0.944
+0.873
+0.872
+..threads = 6, num_primo_max = 325000
+0.059
+0.036
+0.035
+..threads = 6, num_primo_max = 3250000
+0.900
+0.886
+0.831
+..threads = 7, num_primo_max = 325000
+0.038
+0.041
+0.037
+..threads = 7, num_primo_max = 3250000
+1.061
+0.834
+0.945
+..threads = 8, num_primo_max = 325000
+0.057
+0.033
+0.035
+..threads = 8, num_primo_max = 3250000
+0.972
+0.896
+0.875
+.naive_omp_default
+..threads = 1, num_primo_max = 325000
+0.140
+0.118
+0.136
+..threads = 1, num_primo_max = 3250000
+2.840
+2.781
+2.901
+..threads = 2, num_primo_max = 325000
+0.071
+0.071
+0.071
+..threads = 2, num_primo_max = 3250000
+1.791
+1.782
+1.760
+..threads = 3, num_primo_max = 325000
+0.064
+0.069
+0.066
+..threads = 3, num_primo_max = 3250000
+1.334
+1.421
+1.303
+..threads = 4, num_primo_max = 325000
+0.047
+0.059
+0.054
+..threads = 4, num_primo_max = 3250000
+1.023
+1.050
+1.044
+..threads = 5, num_primo_max = 325000
+0.036
+0.075
+0.045
+..threads = 5, num_primo_max = 3250000
+0.987
+0.993
+1.059
+..threads = 6, num_primo_max = 325000
+0.038
+0.064
+0.047
+..threads = 6, num_primo_max = 3250000
+0.992
+0.936
+1.062
+..threads = 7, num_primo_max = 325000
+0.040
+0.077
+0.043
+..threads = 7, num_primo_max = 3250000
+1.099
+0.963
+1.016
+..threads = 8, num_primo_max = 325000
+0.035
+0.059
+0.036
+..threads = 8, num_primo_max = 3250000
+0.919
+0.896
+0.916

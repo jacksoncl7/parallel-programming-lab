@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     #ifdef MAX_NUMBER
         maxNumber = MAX_NUMBER;    
     #else
-        if(argc != 2)
+        if(argc < 2)
         {
             printf("Parâmetro(s) de entrada inválido(s)! Entre com um valor para o maior inteiro!\n");
             return 0;
