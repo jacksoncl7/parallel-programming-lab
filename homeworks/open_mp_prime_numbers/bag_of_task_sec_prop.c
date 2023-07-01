@@ -7,11 +7,6 @@
 
 #define MAX_TASKS 100
 
-typedef struct {
-    int start;
-    int end;
-} Task;
-
 int isPrime(int num) {
     if (num <= 1)
         return 0;
@@ -49,10 +44,6 @@ bool validateInput(int argc, char *argv[]) {
     return true;
 }
 
-void processTask(Task *task, int *resultVector, int index) {
-
-}
-
 int main(int argc, char *argv[]) {
 
     if (!validateInput(argc, argv)) {
@@ -65,7 +56,7 @@ int main(int argc, char *argv[]) {
     int primeCount = 0;
 
     //start to count the execution time
-    clock_t startTime = clock();
+    // clock_t startTime = clock();
 
 
     omp_set_num_threads(numThreads);
@@ -76,51 +67,56 @@ int main(int argc, char *argv[]) {
     int end;
     bool sem = false;
     int localCount = 0;
+    omp_lock_t semPrimary, semSecondary;
 
     #pragma omp parallel
     {
 
     #pragma omp master
     {
+        // omp_set_lock(&semSecondary);
         while (end != objective){
-            if (sem == false) {
-                #pragma atomic
-                end = start + chunkSize;
-            if (end > objective) end = objective;
-
-            printf("Master [%d] criou um noco chunk %d..%d\n", omp_get_thread_num(), start, end);
-            #pragma atomic
-            sem = true;
-            }
-
+            omp_set_lock(&semPrimary);
+            end = start + chunkSize;
+            if (end > objective) { end = objective; }
             if (end != objective) start = end + 1;
+            // omp_unset_lock(&semGenerator);
+            printf("Master [%d] criou um novo chunk %d..%d\n", omp_get_thread_num(), start, end);
         }
     }
 
         while (end != objective) {
+            // omp_unset_lock(&semPrimary);
+            if(!omp_test_lock(&semPrimary)) continue;
+
+
+            // if(!omp_test_lock(&semPrimary)) continue;
+            // if(!omp_test_lock(&semSecondary)) continue;
+            // omp_set_lock(&semSecondary);
+            // omp_unset_lock(&semPrimary);
+
+            int localStart;
             #pragma single nowait private(localCount)
-            if (sem == false) continue;
-            int thread = omp_get_thread_num();
-
-            #pragma atomic
-            sem = false;
-
+            {
             for (int num = start; num <= end; num++) {
                 if (isPrime(num)) {
                     localCount++;
                 }
             }
 
-            printf("Resultado na thread [%d] com chunk %d..%d foi %d\n", thread , start, end, localCount);
-            #pragma atomic
+            printf("Resultado na thread [%d] com chunk %d..%d foi %d\n", omp_get_thread_num() , start, end, localCount);
+            #pragma omp atomic
             primeCount += localCount;
+            }
+            omp_unset_lock(&semPrimary);
         }
+        #pragma omp barrier
     }
 
-    clock_t endTime = clock();
-    double cpu_time_used = ((double) (endTime - startTime)) / CLOCKS_PER_SEC;
-    printf("\nQuantidade de números primos encontrados: %d\n", primeCount+1);
-    printf("\nTempo de execução: %f segundos\n", cpu_time_used);
+    printf("Quantidade de números primos encontrados: %d\n", primeCount+1);
+    // clock_t endTime = clock();
+    // double cpu_time_used = ((double) (endTime - startTime)) / CLOCKS_PER_SEC;
+    // printf("\nTempo de execução: %f segundos\n", cpu_time_used);
 
     return 0;
 }
