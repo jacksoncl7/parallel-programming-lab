@@ -1,5 +1,5 @@
-firstMaxPrimeNumber=325000
-secondMaxPrimeNumber=3250000
+firstMaxPrimeNumber=3250000
+secondMaxPrimeNumber=32500000
 # numberOfTestsForEachEntry=3
 # maxNumberOfThreads=8
 

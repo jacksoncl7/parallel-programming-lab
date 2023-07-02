@@ -1,2 +1,0 @@
-- Variações de implementação (usando outras funções do OpenMP)
-- Maneira fácil de converter as métricas de performance (resultado de 'test.sh') em Planilhas do Google Sheets

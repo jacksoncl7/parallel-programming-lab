@@ -1,7 +1,7 @@
-import pandas as pd
 import json
 
-perf_output_file = open("perf_output.txt", "r")
+myPerfInput = "perf_output_2"
+perf_output_file = open(f"{myPerfInput}.txt", "r")
 
 perf_output_dict = {}
 currFileKey = ""
@@ -41,5 +41,5 @@ for line in perf_output_file:
 
 
 jsonOutput = json.dumps(perf_output_dict, indent=4)
-with open("perf_output.json", "w") as output:
+with open(f"{myPerfInput}.json", "w") as output:
     output.write(jsonOutput)
