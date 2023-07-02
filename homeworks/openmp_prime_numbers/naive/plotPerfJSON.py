@@ -2,7 +2,7 @@ import json
 import matplotlib.pyplot as plt
 
 myPerfInput = "perf_output_2"
-perf_output_file = open(f"{myPerfInput}.txt", "r")
+perf_output_file = open(f"{myPerfInput}.json", "r")
 perf_output = json.load(perf_output_file)
 
 filenames = [filenames for filenames in perf_output]
