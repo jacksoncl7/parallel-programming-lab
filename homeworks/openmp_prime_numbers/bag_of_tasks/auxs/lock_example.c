@@ -5,7 +5,7 @@ int main(int argc, const char *argv[]){
     omp_lock_t chave_simples;
     omp_init_lock(&chave_simples);
 
-    omp_set_num_threads(4);
+    omp_set_num_threads(8);
 
     #pragma omp parallel
     {

@@ -53,64 +53,67 @@ int main(int argc, char *argv[]) {
     int objective = atoi(argv[1]);
     int numThreads = atoi(argv[2]);
     int bagSize = atoi(argv[3]);
-    int primeCount = 0;
 
     //start to count the execution time
     // clock_t startTime = clock();
 
-
     omp_set_num_threads(numThreads);
-
-
     int chunkSize = objective / bagSize;
     int start = 3;
-    int end;
-    bool sem = false;
+    int end = 0;
+    int primeCount = 0;
+    bool workerControl = true;
+    omp_lock_t generationSem, consumeSem;
+
     int localCount = 0;
-    omp_lock_t semPrimary, semSecondary;
+    int localStart = 0;
+    int localEnd = 0;
+
+    omp_init_lock(&generationSem);
+    omp_init_lock(&consumeSem);
+    omp_set_lock(&consumeSem);
 
     #pragma omp parallel
     {
+        #pragma omp master
+        {
+            while (end != objective){
+                if(!omp_test_lock(&generationSem)) continue;
 
-    #pragma omp master
-    {
-        // omp_set_lock(&semSecondary);
-        while (end != objective){
-            omp_set_lock(&semPrimary);
-            end = start + chunkSize;
-            if (end > objective) { end = objective; }
-            if (end != objective) start = end + 1;
-            // omp_unset_lock(&semGenerator);
-            printf("Master [%d] criou um novo chunk %d..%d\n", omp_get_thread_num(), start, end);
+                end = start + chunkSize;
+                if (end > objective) { end = objective; }
+                printf("Master [%d] criou um novo chunk %d..%d\n", omp_get_thread_num(), start, end);
+
+                if (end != objective) start = end + 1;
+                omp_unset_lock(&consumeSem);
+            }
         }
-    }
 
-        while (end != objective) {
-            // omp_unset_lock(&semPrimary);
-            if(!omp_test_lock(&semPrimary)) continue;
-
-
-            // if(!omp_test_lock(&semPrimary)) continue;
-            // if(!omp_test_lock(&semSecondary)) continue;
-            // omp_set_lock(&semSecondary);
-            // omp_unset_lock(&semPrimary);
-
-            int localStart;
-            #pragma single nowait private(localCount)
+        while (workerControl) {
+            #pragma single nowait private(localCount, localStart, localEnd)
             {
-            for (int num = start; num <= end; num++) {
-                if (isPrime(num)) {
-                    localCount++;
+                if(!omp_test_lock(&consumeSem)) continue;
+
+                localStart = start;
+                localEnd = end;
+                omp_unset_lock(&generationSem);
+
+                for (int num = localStart; num <= localEnd; num++) {
+                    if (isPrime(num)) {
+                        localCount++;
+                    }
+                }
+
+                #pragma critical
+                {
+                    printf("Resultado na thread [%d] com chunk %d..%d foi %d | parcial %d \n", omp_get_thread_num() , start, end, localCount, primeCount);
+                    primeCount += localCount;
+                    if (end >= objective) {
+                        workerControl = false;
+                    }
                 }
             }
-
-            printf("Resultado na thread [%d] com chunk %d..%d foi %d\n", omp_get_thread_num() , start, end, localCount);
-            #pragma omp atomic
-            primeCount += localCount;
-            }
-            omp_unset_lock(&semPrimary);
         }
-        #pragma omp barrier
     }
 
     printf("Quantidade de números primos encontrados: %d\n", primeCount+1);
