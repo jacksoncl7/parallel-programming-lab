@@ -69,6 +69,7 @@ int main(int argc, char *argv[]) {
     int localStart = 0;
     int localEnd = 0;
 
+    double startingTime = omp_get_wtime();
     omp_init_lock(&generationSem);
     omp_init_lock(&consumeSem);
     omp_set_lock(&consumeSem);
@@ -116,10 +117,10 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    printf("Quantidade de números primos encontrados: %d\n", primeCount+1);
-    // clock_t endTime = clock();
-    // double cpu_time_used = ((double) (endTime - startTime)) / CLOCKS_PER_SEC;
-    // printf("\nTempo de execução: %f segundos\n", cpu_time_used);
+    double finishingTime = omp_get_wtime();
+    primeCount += 1; // Adds the number '2', which is also prime.
+    printf("Quant. de primos entre 1 e n: %ld \n", primeCount+1);
+	printf("Tempo de execucao: %1.3lf \n", finishingTime - startingTime);
 
     return 0;
 }
