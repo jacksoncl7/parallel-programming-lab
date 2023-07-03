@@ -81,7 +81,7 @@ int main(int argc, char *argv[]) {
                 printf("\nMaster [%d] criou um novo chunk %d..%d\n", omp_get_thread_num(), start, end);
 
                 while(!omp_test_lock(&generationSem)) {
-                    printf("w");
+                    continue;
                 }
                 if (end != objective) start = end + 1;
                 omp_unset_lock(&consumeSem);
@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
             #pragma single nowait private(localCount)
             {
                 if(!omp_test_lock(&consumeSem)) continue;
-
+                omp_test_lock(&generationSem);
                 localCount = 0;
                 for (int num = start; num <= end; num++) {
                     if (isPrime(num)) {
