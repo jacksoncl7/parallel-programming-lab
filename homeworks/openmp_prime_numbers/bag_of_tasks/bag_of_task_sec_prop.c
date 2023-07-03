@@ -54,9 +54,6 @@ int main(int argc, char *argv[]) {
     int numThreads = atoi(argv[2]);
     int bagSize = atoi(argv[3]);
 
-    //start to count the execution time
-    // clock_t startTime = clock();
-
     omp_set_num_threads(numThreads);
     int chunkSize = objective / bagSize;
     int start = 3;
@@ -72,54 +69,48 @@ int main(int argc, char *argv[]) {
     double startingTime = omp_get_wtime();
     omp_init_lock(&generationSem);
     omp_init_lock(&consumeSem);
-    omp_set_lock(&consumeSem);
+    // omp_set_lock(&consumeSem);
 
     #pragma omp parallel
     {
         #pragma omp master
         {
             while (end != objective){
-                if(!omp_test_lock(&generationSem)) continue;
-
                 end = start + chunkSize;
                 if (end > objective) { end = objective; }
-                printf("Master [%d] criou um novo chunk %d..%d\n", omp_get_thread_num(), start, end);
+                printf("\nMaster [%d] criou um novo chunk %d..%d\n", omp_get_thread_num(), start, end);
 
+                while(!omp_test_lock(&generationSem)) {
+                    printf("w");
+                }
                 if (end != objective) start = end + 1;
                 omp_unset_lock(&consumeSem);
             }
         }
 
-        while (workerControl) {
-            #pragma single nowait private(localCount, localStart, localEnd)
+        while (end != objective) {
+            if  (end == 0 ) continue;
+            #pragma single nowait private(localCount)
             {
                 if(!omp_test_lock(&consumeSem)) continue;
 
-                localStart = start;
-                localEnd = end;
-                omp_unset_lock(&generationSem);
-
-                for (int num = localStart; num <= localEnd; num++) {
+                localCount = 0;
+                for (int num = start; num <= end; num++) {
                     if (isPrime(num)) {
                         localCount++;
                     }
                 }
+                primeCount += localCount;
 
-                #pragma critical
-                {
-                    printf("Resultado na thread [%d] com chunk %d..%d foi %d | parcial %d \n", omp_get_thread_num() , start, end, localCount, primeCount);
-                    primeCount += localCount;
-                    if (end >= objective) {
-                        workerControl = false;
-                    }
-                }
+                printf("\nResultado na thread [%d] com chunk %d..%d foi %d \n", omp_get_thread_num() , start, end, localCount, primeCount);
+                omp_unset_lock(&generationSem);
             }
         }
     }
 
     double finishingTime = omp_get_wtime();
     primeCount += 1; // Adds the number '2', which is also prime.
-    printf("Quant. de primos entre 1 e n: %ld \n", primeCount+1);
+    printf("Quant. de primos entre 1 e n: %ld \n", primeCount);
 	printf("Tempo de execucao: %1.3lf \n", finishingTime - startingTime);
 
     return 0;
