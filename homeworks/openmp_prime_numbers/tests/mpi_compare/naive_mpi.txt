@@ -1,0 +1,65 @@
+.naive_mpi
+..processos = 1, num_primo_max = 3250000
+1.135
+1.136
+1.132
+..processos = 1, num_primo_max = 32500000
+29.733
+29.852
+29.799
+..processos = 2, num_primo_max = 3250000
+0.586
+0.590
+0.592
+..processos = 2, num_primo_max = 32500000
+16.329
+16.093
+15.243
+..processos = 3, num_primo_max = 3250000
+0.601
+0.600
+0.599
+..processos = 3, num_primo_max = 32500000
+15.706
+15.942
+15.979
+..processos = 4, num_primo_max = 3250000
+0.306
+0.307
+0.305
+..processos = 4, num_primo_max = 32500000
+7.896
+7.908
+7.900
+..processos = 5, num_primo_max = 3250000
+0.308
+0.309
+0.308
+..processos = 5, num_primo_max = 32500000
+7.893
+7.884
+7.925
+..processos = 6, num_primo_max = 3250000
+0.335
+0.330
+0.325
+..processos = 6, num_primo_max = 32500000
+8.844
+8.717
+8.958
+..processos = 7, num_primo_max = 3250000
+0.245
+0.243
+0.245
+..processos = 7, num_primo_max = 32500000
+6.066
+6.048
+6.021
+..processos = 8, num_primo_max = 3250000
+0.201
+0.201
+0.193
+..processos = 8, num_primo_max = 32500000
+5.107
+5.132
+5.289

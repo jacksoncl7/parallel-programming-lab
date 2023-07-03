@@ -1,0 +1,230 @@
+{
+    "bag_of_tasks_default": [
+        {
+            "threads": 2,
+            "maxPrime": 3250000,
+            "test1": 0.091,
+            "test2": 0.225,
+            "test3": 0.243,
+            "avg": 0.186
+        },
+        {
+            "threads": 2,
+            "maxPrime": 32500000,
+            "test1": 5.835,
+            "test2": 5.92,
+            "test3": 6.23,
+            "avg": 5.995
+        },
+        {
+            "threads": 3,
+            "maxPrime": 3250000,
+            "test1": 0.241,
+            "test2": 0.249,
+            "test3": 0.223,
+            "avg": 0.238
+        },
+        {
+            "threads": 3,
+            "maxPrime": 32500000,
+            "test1": 5.241,
+            "test2": 5.679,
+            "test3": 5.54,
+            "avg": 5.487
+        },
+        {
+            "threads": 4,
+            "maxPrime": 3250000,
+            "test1": 0.279,
+            "test2": 0.326,
+            "test3": 0.254,
+            "avg": 0.286
+        },
+        {
+            "threads": 4,
+            "maxPrime": 32500000,
+            "test1": 7.37,
+            "test2": 7.313,
+            "test3": 7.337,
+            "avg": 7.34
+        },
+        {
+            "threads": 5,
+            "maxPrime": 3250000,
+            "test1": 0.367,
+            "test2": 0.217,
+            "test3": 0.315,
+            "avg": 0.3
+        },
+        {
+            "threads": 5,
+            "maxPrime": 32500000,
+            "test1": 8.071,
+            "test2": 9.077,
+            "test3": 8.885,
+            "avg": 8.678
+        },
+        {
+            "threads": 6,
+            "maxPrime": 3250000,
+            "test1": 0.436,
+            "test2": 0.412,
+            "test3": 0.467,
+            "avg": 0.438
+        },
+        {
+            "threads": 6,
+            "maxPrime": 32500000,
+            "test1": 10.163,
+            "test2": 10.37,
+            "test3": 10.453,
+            "avg": 10.329
+        },
+        {
+            "threads": 7,
+            "maxPrime": 3250000,
+            "test1": 0.522,
+            "test2": 0.415,
+            "test3": 0.467,
+            "avg": 0.468
+        },
+        {
+            "threads": 7,
+            "maxPrime": 32500000,
+            "test1": 12.08,
+            "test2": 12.2,
+            "test3": 10.029,
+            "avg": 11.436
+        },
+        {
+            "threads": 8,
+            "maxPrime": 3250000,
+            "test1": 0.637,
+            "test2": 0.662,
+            "test3": 0.588,
+            "avg": 0.629
+        },
+        {
+            "threads": 8,
+            "maxPrime": 32500000,
+            "test1": 14.311,
+            "test2": 14.077,
+            "test3": 12.504,
+            "avg": 13.631
+        }
+    ],
+    "bag_of_tasks_proposto": [
+        {
+            "threads": 2,
+            "maxPrime": 3250000,
+            "test1": 0.157,
+            "test2": 0.129,
+            "test3": 0.128,
+            "avg": 0.138
+        },
+        {
+            "threads": 2,
+            "maxPrime": 32500000,
+            "test1": 3.214,
+            "test2": 3.309,
+            "test3": 3.173,
+            "avg": 3.232
+        },
+        {
+            "threads": 3,
+            "maxPrime": 3250000,
+            "test1": 0.096,
+            "test2": 0.093,
+            "test3": 0.093,
+            "avg": 0.094
+        },
+        {
+            "threads": 3,
+            "maxPrime": 32500000,
+            "test1": 2.327,
+            "test2": 2.296,
+            "test3": 2.392,
+            "avg": 2.338
+        },
+        {
+            "threads": 4,
+            "maxPrime": 3250000,
+            "test1": 0.073,
+            "test2": 0.079,
+            "test3": 0.074,
+            "avg": 0.075
+        },
+        {
+            "threads": 4,
+            "maxPrime": 32500000,
+            "test1": 1.768,
+            "test2": 1.752,
+            "test3": 1.779,
+            "avg": 1.766
+        },
+        {
+            "threads": 5,
+            "maxPrime": 3250000,
+            "test1": 0.07,
+            "test2": 0.068,
+            "test3": 0.065,
+            "avg": 0.068
+        },
+        {
+            "threads": 5,
+            "maxPrime": 32500000,
+            "test1": 1.682,
+            "test2": 1.724,
+            "test3": 1.691,
+            "avg": 1.699
+        },
+        {
+            "threads": 6,
+            "maxPrime": 3250000,
+            "test1": 0.069,
+            "test2": 0.076,
+            "test3": 0.074,
+            "avg": 0.073
+        },
+        {
+            "threads": 6,
+            "maxPrime": 32500000,
+            "test1": 1.59,
+            "test2": 1.561,
+            "test3": 1.562,
+            "avg": 1.571
+        },
+        {
+            "threads": 7,
+            "maxPrime": 3250000,
+            "test1": 0.065,
+            "test2": 0.061,
+            "test3": 0.064,
+            "avg": 0.063
+        },
+        {
+            "threads": 7,
+            "maxPrime": 32500000,
+            "test1": 1.62,
+            "test2": 1.585,
+            "test3": 1.548,
+            "avg": 1.584
+        },
+        {
+            "threads": 8,
+            "maxPrime": 3250000,
+            "test1": 0.06,
+            "test2": 0.058,
+            "test3": 0.065,
+            "avg": 0.061
+        },
+        {
+            "threads": 8,
+            "maxPrime": 32500000,
+            "test1": 1.661,
+            "test2": 1.702,
+            "test3": 1.613,
+            "avg": 1.659
+        }
+    ]
+}

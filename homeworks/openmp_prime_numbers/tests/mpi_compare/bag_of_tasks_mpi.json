@@ -1,0 +1,116 @@
+{
+    "bag_of_tasks_mpi": [
+        {
+            "threads": 2,
+            "maxPrime": 3250000,
+            "test1": 1.87,
+            "test2": 1.883,
+            "test3": 1.902,
+            "avg": 1.885
+        },
+        {
+            "threads": 2,
+            "maxPrime": 32500000,
+            "test1": 49.992,
+            "test2": 58.48,
+            "test3": 62.249,
+            "avg": 56.907
+        },
+        {
+            "threads": 3,
+            "maxPrime": 3250000,
+            "test1": 1.018,
+            "test2": 1.017,
+            "test3": 1.015,
+            "avg": 1.017
+        },
+        {
+            "threads": 3,
+            "maxPrime": 32500000,
+            "test1": 32.724,
+            "test2": 39.432,
+            "test3": 33.614,
+            "avg": 35.257
+        },
+        {
+            "threads": 4,
+            "maxPrime": 3250000,
+            "test1": 1.195,
+            "test2": 0.914,
+            "test3": 0.969,
+            "avg": 1.026
+        },
+        {
+            "threads": 4,
+            "maxPrime": 32500000,
+            "test1": 26.798,
+            "test2": 27.032,
+            "test3": 24.983,
+            "avg": 26.271
+        },
+        {
+            "threads": 5,
+            "maxPrime": 3250000,
+            "test1": 0.863,
+            "test2": 0.959,
+            "test3": 1.024,
+            "avg": 0.949
+        },
+        {
+            "threads": 5,
+            "maxPrime": 32500000,
+            "test1": 28.277,
+            "test2": 26.449,
+            "test3": 27.649,
+            "avg": 27.458
+        },
+        {
+            "threads": 6,
+            "maxPrime": 3250000,
+            "test1": 1.107,
+            "test2": 0.985,
+            "test3": 1.122,
+            "avg": 1.071
+        },
+        {
+            "threads": 6,
+            "maxPrime": 32500000,
+            "test1": 21.662,
+            "test2": 27.254,
+            "test3": 27.191,
+            "avg": 25.369
+        },
+        {
+            "threads": 7,
+            "maxPrime": 3250000,
+            "test1": 0.818,
+            "test2": 0.783,
+            "test3": 0.835,
+            "avg": 0.812
+        },
+        {
+            "threads": 7,
+            "maxPrime": 32500000,
+            "test1": 21.828,
+            "test2": 25.385,
+            "test3": 20.301,
+            "avg": 22.505
+        },
+        {
+            "threads": 8,
+            "maxPrime": 3250000,
+            "test1": 1.147,
+            "test2": 1.169,
+            "test3": 1.276,
+            "avg": 1.197
+        },
+        {
+            "threads": 8,
+            "maxPrime": 32500000,
+            "test1": 27.296,
+            "test2": 25.884,
+            "test3": 25.07,
+            "avg": 26.083
+        }
+    ]
+}

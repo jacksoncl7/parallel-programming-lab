@@ -1,0 +1,57 @@
+.bag_of_tasks_mpi
+..processos = 2, num_primo_max = 3250000
+1.870
+1.883
+1.902
+..processos = 2, num_primo_max = 32500000
+49.992
+58.480
+62.249
+..processos = 3, num_primo_max = 3250000
+1.018
+1.017
+1.015
+..processos = 3, num_primo_max = 32500000
+32.724
+39.432
+33.614
+..processos = 4, num_primo_max = 3250000
+1.195
+0.914
+0.969
+..processos = 4, num_primo_max = 32500000
+26.798
+27.032
+24.983
+..processos = 5, num_primo_max = 3250000
+0.863
+0.959
+1.024
+..processos = 5, num_primo_max = 32500000
+28.277
+26.449
+27.649
+..processos = 6, num_primo_max = 3250000
+1.107
+0.985
+1.122
+..processos = 6, num_primo_max = 32500000
+21.662
+27.254
+27.191
+..processos = 7, num_primo_max = 3250000
+0.818
+0.783
+0.835
+..processos = 7, num_primo_max = 32500000
+21.828
+25.385
+20.301
+..processos = 8, num_primo_max = 3250000
+1.147
+1.169
+1.276
+..processos = 8, num_primo_max = 32500000
+27.296
+25.884
+25.070
