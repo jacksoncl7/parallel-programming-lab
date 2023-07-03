@@ -36,8 +36,8 @@ bool isInteger(const char *str) {
 }
 
 bool validateInput(int argc, char *argv[]) {
-    if (argc != 4 || !isInteger(argv[1]) || !isInteger(argv[2]) || !isInteger(argv[3])) {
-        printf("Uso: ./bag_of_tasks <objetivo> <num_threads> <size_of_bag>\n");
+    if (argc != 3 || !isInteger(argv[1]) || !isInteger(argv[2])) {
+        printf("Uso: ./bag_of_tasks <objetivo> <Numero de Threads>\n");
         return false;
     }
 
@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
 
     int objective = atoi(argv[1]);
     int numThreads = atoi(argv[2]);
-    int bagSize = atoi(argv[3]);
+    int bagSize = 20;
 
     omp_set_num_threads(numThreads);
     int chunkSize = objective / bagSize;
@@ -69,7 +69,6 @@ int main(int argc, char *argv[]) {
     double startingTime = omp_get_wtime();
     omp_init_lock(&generationSem);
     omp_init_lock(&consumeSem);
-    // omp_set_lock(&consumeSem);
 
     #pragma omp parallel
     {
@@ -89,7 +88,8 @@ int main(int argc, char *argv[]) {
         }
 
         while (end != objective) {
-            if  (end == 0 ) continue;
+            if  (end == 0) continue;
+
             #pragma single nowait private(localCount)
             {
                 if(!omp_test_lock(&consumeSem)) continue;
@@ -100,6 +100,7 @@ int main(int argc, char *argv[]) {
                         localCount++;
                     }
                 }
+                #pragma omp atomic
                 primeCount += localCount;
 
                 printf("\nResultado na thread [%d] com chunk %d..%d foi %d \n", omp_get_thread_num() , start, end, localCount, primeCount);
